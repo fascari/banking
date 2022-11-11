@@ -33,8 +33,7 @@ func (s DefaultAccountService) NewAccount(req dto.AccountRequest) (*dto.AccountR
 
 func (s DefaultAccountService) MakeTransaction(req dto.TransactionRequest) (*dto.TransactionResponse, *errs.AppError) {
 	// incoming request validation
-	err := req.Validate()
-	if err != nil {
+	if err := req.Validate(); err != nil {
 		return nil, err
 	}
 	// server side validation for checking the available balance in the account

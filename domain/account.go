@@ -20,7 +20,7 @@ func (a Account) ToAccountResponseDto() *dto.AccountResponse {
 	return &dto.AccountResponse{AccountId: a.AccountId}
 }
 
-//go:generate mockgen -destination=../mocks/domain/mockAccountRepository.go -package=domain github.com/ashishjuyal/banking/domain AccountRepository
+//go:generate mockgen -destination=../mocks/domain/mockAccountRepository.go -package=domain banking/domain AccountRepository
 type AccountRepository interface {
 	Save(account Account) (*Account, *errs.AppError)
 	FindBy(accountId string) (*Account, *errs.AppError)
