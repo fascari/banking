@@ -6,7 +6,7 @@ import (
 	"github.com/fascari/banking-lib/errs"
 )
 
-//go:generate mockgen -destination=../mocks/service/mockCustomerService.go -package=service github.com/ashishjuyal/banking/service CustomerService
+//go:generate mockgen -destination=../mocks/service/mockCustomerService.go -package=service banking/service CustomerService
 type CustomerService interface {
 	GetAllCustomer(string) ([]dto.CustomerResponse, *errs.AppError)
 	GetCustomer(string) (*dto.CustomerResponse, *errs.AppError)
