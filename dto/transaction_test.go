@@ -1,9 +1,22 @@
 package dto
 
 import (
+	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
 )
+
+func Test_should_pass_when_transaction_type_is_deposit_or_withdrawl(t *testing.T) {
+	// Arrange
+	request := TransactionRequest{
+		TransactionType: WITHDRAWAL,
+	}
+	// Act
+	appError := request.Validate()
+
+	// Assert
+	assert.Nil(t, appError)
+}
 
 func Test_should_return_error_when_transaction_type_is_not_deposit_or_withdrawl(t *testing.T) {
 	// Arrange
